@@ -2874,8 +2874,8 @@ def denorm_boxes_graph(boxes, shape):
 #  Custom Callbacks
 ############################################################
 
-class MeanAveragePrecisionCallback():
-    def __init__(self, train_model: MaskRCNN, inference_model: MaskRCNN, dataset,
+class MeanAveragePrecisionCallback(keras.callbacks.Callback):
+    def __init__(self, train_model: MaskRCNN, inference_model: MaskRCNN, dataset: Dataset,
                  calculate_map_at_every_X_epoch=5, dataset_limit=None,
                  verbose=1):
         super().__init__()
